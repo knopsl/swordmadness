@@ -3,7 +3,7 @@ import java.util.Random;
 /**
  * Created by mat on 26/06/14.
  */
-public class Test {
+public class Game {
 
     public static void main(String[] arg) throws Exception {
 
@@ -20,7 +20,10 @@ public class Test {
                 Item i = new Item();
                 i.id = System.currentTimeMillis();
                 i.name = "Schwert";
-                i.strenght = getstrength();
+                i.strenght = Util.getstrength();
+
+                Item t = new Item();
+
                 p.items.add(i);
                 p.items.size();
                 System.out.println(i.toString());
@@ -39,15 +42,5 @@ public class Test {
 
     }
 
-    public static int getstrength() {
-        Random r = new Random();
-        int i = r.nextInt();
-        if (i < 0) {
-            i = i * -1;
-        }
-        i = i % 100;
-
-        return i;
-    }
 
 }
