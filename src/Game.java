@@ -16,6 +16,29 @@ public class Game {
 
         char in = (char) System.in.read();
         while (in != 'q') {
+            if (in == 'f') {
+                System.out.println("FIGHT!");
+
+                Monster m = new Monster("Whatev","wtf? lorem ipsum");
+                if (p.items.size()>0 ){ //gibts das schwert schon?
+                    Item item = p.items.get(0);
+                   if (item.strenght > m.strength){
+                       System.out.println("you win!");
+                       p.items.remove(0);
+                   }
+
+                   else {
+                       System.out.println("you lose!");
+                       Thread.sleep(10000);
+                       System.exit(0);
+                   }
+
+                }
+            else {
+                    System.out.println("Run bitch");
+                }
+
+            }
             if (in == 'p') {
                 Item i = new Item();
                 i.id = System.currentTimeMillis();
