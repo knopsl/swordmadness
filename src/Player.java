@@ -6,6 +6,12 @@ import java.util.List;
  */
 public class Player {
 
+    public String name;
+
     public List<Item> items = new ArrayList<Item>();
+
+    public String toString(){
+        return "dieser Spieler heisst: " + this.name;
+    }
 
 }

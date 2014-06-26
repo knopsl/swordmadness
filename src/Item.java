@@ -12,7 +12,7 @@ public class Item {
     public int strenght;
 
     public String toString(){
-        return "Spieler hat "+this.name+"(Stärke:"+this.strenght+"; Id: "+this.id+") aufgehoben.";
+        return this.name+"(Stärke:"+this.strenght+"; Id: "+this.id;
     }
 
 }
