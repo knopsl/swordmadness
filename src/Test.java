@@ -13,7 +13,7 @@ public class Test {
 
         Console sega = new Console();
         sega.name="Sega mega drive";
-        sega.priceInDollars= 200.99;
+        sega.priceInDollars= 1999;
         sega.setInputs("usb");
 
 
