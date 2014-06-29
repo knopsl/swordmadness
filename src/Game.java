@@ -43,7 +43,7 @@ public class Game {
                 Item i = new Item();
                 i.id = System.currentTimeMillis();
                 i.name = "Schwert";
-                i.strenght = Util.getstrength();
+                i.strenght = Util.getStrength();
 
                 Item t = new Item();
 
@@ -51,6 +51,15 @@ public class Game {
                 p.items.size();
                 System.out.println(i.toString());
             }
+            if (in == 'm') {
+                Map i = new Map("MAAAAAAAAAP","blablalbalbalba","A1");
+                i.id = System.currentTimeMillis();
+
+                p.items.add(i);
+                p.items.size();
+                System.out.println(i.toString());
+            }
+
             if (in == 'l') {
                 System.out.println("Spieler hat folgende Items:");
                 for (Item i : p.items) {
@@ -60,6 +69,7 @@ public class Game {
 
 
             in = (char) System.in.read();
+
         }
 
 

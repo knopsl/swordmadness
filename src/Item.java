@@ -5,7 +5,7 @@ public class Item {
 
     public String name;
 
-    public double priceInDollars;
+    public double price;
 
     public long id;
 

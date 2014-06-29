@@ -10,7 +10,7 @@ public class Monster {
                    String description) {
         this.name = name;
         this.description = description;
-        this.strength = Util.getstrength();
+        this.strength = Util.getStrength();
     }
 
 
