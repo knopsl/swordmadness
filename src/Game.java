@@ -19,7 +19,7 @@ public class Game {
             if (in == 'f') {
                 System.out.println("FIGHT!");
 
-                Monster m = new Monster("Whatev","wtf? lorem ipsum");
+                Monster m = new Monster("Whatev","wtf? lorem ipsum sdads");
                 if (p.items.size()>0 ){ //gibts das schwert schon?
                     Item item = p.items.get(0);
                    if (item.strenght > m.strength){
