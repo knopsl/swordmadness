@@ -6,8 +6,7 @@ public class Monster {
     public String description;
     public int strength;
 
-    public Monster(String name,
-                   String description) {
+    public Monster(String name, String description) {
         this.name = name;
         this.description = description;
         this.strength = Util.getStrength();

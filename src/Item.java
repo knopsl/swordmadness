@@ -9,10 +9,19 @@ public class Item {
 
     public long id;
 
-    public int strenght;
+    public int strength;
 
-    public String toString(){
-        return this.name+"(Strength:"+this.strenght+"; Id: "+this.id;
+    public Item(String name, double price, long id) {
+        this.name = name;
+        this.price = price;
+        this.id = id;
+        // same here as in Monster, generate random strength on creation ob object
+        this.strength = Util.getStrength();
+    }
+
+
+    public String toString() {
+        return this.name + "(Strength:" + this.strength + "; Id: " + this.id;
     }
 
 }
