@@ -1,5 +1,3 @@
-import java.util.Random;
-
 /**
  * Created by mat on 26/06/14.
  */
@@ -10,7 +8,6 @@ public class Game {
 
         Player p = new Player();
         p.name = "Gizmo";
-        Random r = new Random();
 
         System.out.println(p.toString());
 
@@ -44,22 +41,29 @@ public class Game {
                 i.id = System.currentTimeMillis();
                 i.name = "Schwert";
                 i.strenght = Util.getStrength();
-
-                Item t = new Item();
-
                 p.items.add(i);
                 p.items.size();
                 System.out.println(i.toString());
             }
             if (in == 'm') {
-                Map i = new Map("MAAAAAAAAAP","blablalbalbalba","A1");
+                Map i = new Map("map1","blablalbalbalba","A1");
                 i.id = System.currentTimeMillis();
 
                 p.items.add(i);
                 p.items.size();
                 System.out.println(i.toString());
             }
+            /*  if (in == 'n') {
+                CharSequence t = "map1";
+                if (p.items.contains(t)) {
+                System.out.println("IT WORKED");
 
+                }
+                else {
+
+                    System.out.println("IT DIDN'T WORK :(");
+                }
+            } */
             if (in == 'l') {
                 System.out.println("Spieler hat folgende Items:");
                 for (Item i : p.items) {

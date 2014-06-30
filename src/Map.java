@@ -19,13 +19,22 @@ public class Map extends Item {
         return this.name + "(Beschreibung:" + this.description + this.coordiantes;
     }
 
+    /*
     public void setCoordinates(String i) {
 
         this.coordiantes = i;
 
     }
 
+    public String getCoordinates() {
+
+        return this.coordiantes;
+    }
+
+
+
     public void setName(String name) {
         this.name = name;
     }
+    */
 }
