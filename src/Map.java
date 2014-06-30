@@ -19,7 +19,7 @@ public class Map extends Item {
         return this.name + "(Description:" + this.description + this.coordiantes+")";
     }
 
-    /*
+    /* TODO:
     public void setCoordinates(String i) {
 
         this.coordiantes = i;

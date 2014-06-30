@@ -8,13 +8,13 @@ public class Place {
 
     public String name;
 
-    public String  description;
+    public String description;
 
     public String coordinates;
 
     public List<Item> items = new ArrayList<Item>();
 
     public String toString(){
-        return this.name+"; Description: "+this.description+"Coordinates: "+this.coordinates;
+        return this.name+"; Description: "+this.description+"Coordinates: "+this.coordinates+")";
     }
 }

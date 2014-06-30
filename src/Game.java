@@ -7,6 +7,28 @@ public class Game {
 
     public static void main(String[] arg) throws Exception {
 
+        /*PLACES----------------------------------------------BEGIN*/
+
+        Place room = new Place();
+        room.name = "first room";
+        room.description = "test description...";
+        room.coordinates = "A1";
+
+        Item pill = new Item();
+        pill.name = "Suicide Pill";
+        room.items.add(pill);
+        room.items.size();
+        System.out.println(pill.toString());
+
+        /*TODO:
+          compare place coordinates with map coordinates to check where you are and options/items in that room.
+          change map coordinates via setter automatically within gameflow or by players choice.
+        */
+
+
+        /*PLACES------------------------------------------------END*/
+
+
         System.out.println("SWORDMADNESS - Even the Title is Madness D:");
         System.out.println("The moment you spawn at that Pit, you know there will be no happy ending after all..." +
                 "Pick up a sword (or many) and fight your way...as far as you get. ");
@@ -18,6 +40,8 @@ public class Game {
 
         System.out.println(p.toString());
         System.out.println("Make your move. (fight)(map)(list)(pickup)");
+
+
 
         while (!"quit".equals(in)) {
             in = inp.nextLine();
@@ -58,7 +82,7 @@ public class Game {
                 Thread.sleep(1000);
                 Item i = new Item();
                 i.id = System.currentTimeMillis();
-                i.name = "Schwert";
+                i.name = "Sword";
                 i.strenght = Util.getStrength();
                 System.out.println("atm you are picking it up...");
                 p.items.add(i);
@@ -75,10 +99,7 @@ public class Game {
                 p.items.size();
                 System.out.println(i.toString());
             }
-            /*
-            * REFACTOR WHEN NEEDED
-
-
+            /* TODO:
             if (in == 'n') {
                 CharSequence t = "map1";
                 if (p.items.contains(t)) {
