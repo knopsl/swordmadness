@@ -11,7 +11,7 @@ public class Player {
     public List<Item> items = new ArrayList<Item>();
 
     public String toString(){
-        return "player name: " + this.name;
+        return "You will be remembered " + this.name+".";
     }
 
 }

@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 /**
  * Created by mat on 26/06/14.
  */
@@ -5,15 +7,23 @@ public class Game {
 
     public static void main(String[] arg) throws Exception {
 
-
+        System.out.println("SWORDMADNESS - Even the Title is Madness D:");
+        System.out.println("The moment you spawn at that Pit, you know there will be no happy ending after all..." +
+                "Pick up a sword (or many) and fight your way...as far as you get. ");
+        Scanner inp = new Scanner(System.in);
+        System.out.println("Please Enter your Name: ");
+        String in = inp.nextLine();
         Player p = new Player();
-        p.name = "Gizmo";
+        p.name = in;
 
         System.out.println(p.toString());
+        System.out.println("Make your move. (fight)(map)(list)(pickup)");
 
-        char in = (char) System.in.read();
-        while (in != 'q') {
-            if (in == 'f') {
+        while (!"quit".equals(in)) {
+            in = inp.nextLine();
+
+            if ("fight".equals(in)) {
+                System.out.println(in);
                 System.out.println("3");
                 Thread.sleep(1000);
                 System.out.println("2");
@@ -27,23 +37,23 @@ public class Game {
                 if (p.items.size()>0 ){ //gibts das schwert schon?
                     Item item = p.items.get(0);
                    if (item.strenght > m.strength){
-                       System.out.println("you win!");
+                       System.out.println("YOU WIN! ^(o.O)^");
                        p.items.remove(0);
                    }
 
                    else {
-                       System.out.println("you lose!");
+                       System.out.println("YOU LOSE!  <(x.x)>");
                        Thread.sleep(10000);
                        System.exit(0);
                    }
 
                 }
             else {
-                    System.out.println("Run bitch");
+                    System.out.println("You don't have anything to fight with! Run bitch!!!");
                 }
 
             }
-            if (in == 'p') {
+            if ("pickup".equals(in)) {
                 System.out.println("you are going to pick up a sword.");
                 Thread.sleep(1000);
                 Item i = new Item();
@@ -57,7 +67,7 @@ public class Game {
                 System.out.println("Done!  this is your sword:");
                 System.out.println(i.toString());
             }
-            if (in == 'm') {
+            if ("map".equals(in)) {
                 Map i = new Map("map1","This is a boring old map, outdated as f***, why would anyone pick up one of these anyway...","A1");
                 i.id = System.currentTimeMillis();
 
@@ -65,7 +75,11 @@ public class Game {
                 p.items.size();
                 System.out.println(i.toString());
             }
-            /*  if (in == 'n') {
+            /*
+            * REFACTOR WHEN NEEDED
+
+
+            if (in == 'n') {
                 CharSequence t = "map1";
                 if (p.items.contains(t)) {
                 System.out.println("IT WORKED");
@@ -76,7 +90,7 @@ public class Game {
                     System.out.println("IT DIDN'T WORK :(");
                 }
             } */
-            if (in == 'l') {
+            if ("list".equals(in)) {
                 System.out.println("Ooh look at what you've got:");
                 for (Item i : p.items) {
                     System.out.println(i.toString());
@@ -84,7 +98,7 @@ public class Game {
             }
 
 
-            in = (char) System.in.read();
+            /*in = (char) System.in.read();*/
 
         }
 
