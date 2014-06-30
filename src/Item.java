@@ -12,7 +12,7 @@ public class Item {
     public int strenght;
 
     public String toString(){
-        return this.name+"(Stärke:"+this.strenght+"; Id: "+this.id;
+        return this.name+"(Strength:"+this.strenght+"; Id: "+this.id;
     }
 
 }

@@ -16,7 +16,7 @@ public class Map extends Item {
 
 
     public String toString() {
-        return this.name + "(Beschreibung:" + this.description + this.coordiantes;
+        return this.name + "(Description:" + this.description + this.coordiantes+")";
     }
 
     /*
