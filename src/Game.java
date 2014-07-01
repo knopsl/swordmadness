@@ -14,8 +14,7 @@ public class Game {
         room.description = "test description...";
         room.coordinates = "A1";
 
-        Item pill = new Item();
-        pill.name = "Suicide Pill";
+        Item pill = new Item("Suicide Pill",0.0,0);
         room.items.add(pill);
         room.items.size();
         System.out.println(pill.toString());
@@ -57,22 +56,19 @@ public class Game {
                 System.out.println("FIGHT!");
                 Thread.sleep(2000);
 
-                Monster m = new Monster("Whatev","wtf? lorem ipsum sdads");
-                if (p.items.size()>0 ){ //gibts das schwert schon?
+                Monster m = new Monster("Whatev", "wtf? lorem ipsum sdads");
+                if (p.items.size() > 0) { //gibts das schwert schon?
                     Item item = p.items.get(0);
-                   if (item.strenght > m.strength){
-                       System.out.println("YOU WIN! ^(o.O)^");
-                       p.items.remove(0);
-                   }
+                    if (item.strength > m.strength) {
+                        System.out.println("YOU WIN! ^(o.O)^");
+                        p.items.remove(0);
+                    } else {
+                        System.out.println("YOU LOSE!  <(x.x)>");
+                        Thread.sleep(10000);
+                        System.exit(0);
+                    }
 
-                   else {
-                       System.out.println("YOU LOSE!  <(x.x)>");
-                       Thread.sleep(10000);
-                       System.exit(0);
-                   }
-
-                }
-            else {
+                } else {
                     System.out.println("You don't have anything to fight with! Run bitch!!!");
                 }
 
@@ -80,10 +76,10 @@ public class Game {
             if ("pickup".equals(in)) {
                 System.out.println("you are going to pick up a sword.");
                 Thread.sleep(1000);
-                Item i = new Item();
-                i.id = System.currentTimeMillis();
-                i.name = "Sword";
-                i.strenght = Util.getStrength();
+
+                // Better to also put random ID generation into Util
+                Item i = new Item("Sword", 0.0, System.currentTimeMillis());
+
                 System.out.println("atm you are picking it up...");
                 p.items.add(i);
                 p.items.size();
@@ -92,7 +88,7 @@ public class Game {
                 System.out.println(i.toString());
             }
             if ("map".equals(in)) {
-                Map i = new Map("map1","This is a boring old map, outdated as f***, why would anyone pick up one of these anyway...","A1");
+                Map i = new Map("map1", "This is a boring old map, outdated as f***, why would anyone pick up one of these anyway...", "A1");
                 i.id = System.currentTimeMillis();
 
                 p.items.add(i);
