@@ -10,11 +10,18 @@ public class Place {
 
     public String description;
 
-    public String coordinates;
+    public List<Item> items;
 
-    public List<Item> items = new ArrayList<Item>();
+    public Place() {
 
-    public String toString(){
-        return this.name+"; Description: "+this.description+"Coordinates: "+this.coordinates+")";
+        name = "testplace";
+        description = "blablablablabla";
+        items = new ArrayList<Item>();
+
+    }
+
+
+    public String toString() {
+        return this.name + "\n Description: " + this.description + "Coordinates: ";
     }
 }

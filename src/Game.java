@@ -7,12 +7,17 @@ public class Game {
 
     public static void main(String[] arg) throws Exception {
 
+        World alderan = new World("alderan");
+        System.out.println("SWORDMADNESS - Even the Title is Madness D:");
+        System.out.println("The moment you spawn at that Pit, you know there will be no happy ending after all..." +
+                "Pick up a sword (or many) and fight your way...as far as you get.\n "+alderan.name);
+
         /*PLACES----------------------------------------------BEGIN*/
 
         Place room = new Place();
         room.name = "first room";
         room.description = "test description...";
-        room.coordinates = "A1";
+
 
         Item pill = new Item("Suicide Pill",0.0,0);
         room.items.add(pill);
@@ -28,19 +33,20 @@ public class Game {
         /*PLACES------------------------------------------------END*/
 
 
-        System.out.println("SWORDMADNESS - Even the Title is Madness D:");
-        System.out.println("The moment you spawn at that Pit, you know there will be no happy ending after all..." +
-                "Pick up a sword (or many) and fight your way...as far as you get. ");
+
         Scanner inp = new Scanner(System.in);
         System.out.println("Please Enter your Name: ");
-        String in = inp.nextLine();
+
         Player p = new Player();
-        p.name = in;
+        //p.name = in;
+        p.name = Util.getMagicName();
+
+        System.out.println(alderan.whereAmI());
 
         System.out.println(p.toString());
         System.out.println("Make your move. (fight)(map)(list)(pickup)");
 
-
+        String in = inp.nextLine();
 
         while (!"quit".equals(in)) {
             in = inp.nextLine();
