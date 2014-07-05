@@ -5,24 +5,23 @@ import java.util.Scanner;
  */
 public class Game {
 
+    public World alderan;
+    public Player player;
+
+    public Game() {
+        alderan = new World("alderan", 10, 10);
+        player = new Player();
+        player.name = Util.getMagicNameNpc();
+    }
+
     public static void main(String[] arg) throws Exception {
 
-        World alderan = new World("alderan");
+        Game game = new Game();
+
+
         System.out.println("SWORDMADNESS - Even the Title is Madness D:");
         System.out.println("The moment you spawn at that Pit, you know there will be no happy ending after all..." +
-                "Pick up a sword (or many) and fight your way...as far as you get.\n "+alderan.name);
-
-        /*PLACES----------------------------------------------BEGIN*/
-
-        Place room = new Place();
-        room.name = "first room";
-        room.description = "test description...";
-
-
-        Item pill = new Item("Suicide Pill",0.0,0);
-        room.items.add(pill);
-        room.items.size();
-        System.out.println(pill.toString());
+                "Pick up a sword (or many) and fight your way...as far as you get.\n " + game.alderan.name);
 
         /*TODO:
           compare place coordinates with map coordinates to check where you are and options/items in that room.
@@ -30,29 +29,17 @@ public class Game {
         */
 
 
-        /*PLACES------------------------------------------------END*/
+        String playerName = prompt("Please Enter your Name: ");
 
+        System.out.println("You are currently at: " + game.alderan.whereAmI());
 
-
-        Scanner inp = new Scanner(System.in);
-        System.out.println("Please Enter your Name: ");
-
-        Player p = new Player();
-        //p.name = in;
-        p.name = Util.getMagicName();
-
-        System.out.println(alderan.whereAmI());
-
-        System.out.println(p.toString());
-        System.out.println("Make your move. (fight)(map)(list)(pickup)");
-
-        String in = inp.nextLine();
+        String in = "";
 
         while (!"quit".equals(in)) {
-            in = inp.nextLine();
+            in = prompt("Make your move. (fight)(map)(list)(pickup)");
 
             if ("fight".equals(in)) {
-                System.out.println(in);
+
                 System.out.println("3");
                 Thread.sleep(1000);
                 System.out.println("2");
@@ -63,11 +50,11 @@ public class Game {
                 Thread.sleep(2000);
 
                 Monster m = new Monster("Whatev", "wtf? lorem ipsum sdads");
-                if (p.items.size() > 0) { //gibts das schwert schon?
-                    Item item = p.items.get(0);
+                if (game.player.items.size() > 0) { //gibts das schwert schon?
+                    Item item = game.player.items.get(0);
                     if (item.strength > m.strength) {
                         System.out.println("YOU WIN! ^(o.O)^");
-                        p.items.remove(0);
+                        game.player.items.remove(0);
                     } else {
                         System.out.println("YOU LOSE!  <(x.x)>");
                         Thread.sleep(10000);
@@ -87,8 +74,8 @@ public class Game {
                 Item i = new Item("Sword", 0.0, System.currentTimeMillis());
 
                 System.out.println("atm you are picking it up...");
-                p.items.add(i);
-                p.items.size();
+                game.player.items.add(i);
+                game.player.items.size();
                 Thread.sleep(1000);
                 System.out.println("Done!  this is your sword:");
                 System.out.println(i.toString());
@@ -97,8 +84,8 @@ public class Game {
                 Map i = new Map("map1", "This is a boring old map, outdated as f***, why would anyone pick up one of these anyway...", "A1");
                 i.id = System.currentTimeMillis();
 
-                p.items.add(i);
-                p.items.size();
+                game.player.items.add(i);
+                game.player.items.size();
                 System.out.println(i.toString());
             }
             /* TODO:
@@ -115,7 +102,7 @@ public class Game {
             } */
             if ("list".equals(in)) {
                 System.out.println("Ooh look at what you've got:");
-                for (Item i : p.items) {
+                for (Item i : game.player.items) {
                     System.out.println(i.toString());
                 }
             }
@@ -126,6 +113,13 @@ public class Game {
         }
 
 
+    }
+
+
+    public static String prompt(String message) {
+        Scanner inp = new Scanner(System.in);
+        System.out.println(message);
+        return new Scanner(System.in).nextLine();
     }
 
 

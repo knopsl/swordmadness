@@ -10,6 +10,7 @@ public class Util {
 
     public static List<String> syllablesMonster = Arrays.asList("Ran","Tan","Plan","Wur","St");
     public static List<String> syllablesNpc = Arrays.asList("Ran","Tan","Plan","Wur","St");
+    public static List<String> syllablesPlace = Arrays.asList("Ran","Tan","Plan","Wur","St");
 
     public static int getStrength() {
         Random r = new Random();
@@ -33,6 +34,14 @@ public class Util {
     public static String getMagicNameNpc() {
         String firstSyllable =getMagicSyllable(syllablesNpc);
         String secondSyllable =getMagicSyllable(syllablesNpc);
+
+        return firstSyllable + secondSyllable;
+
+    }
+
+    public static String getMagicNamePlace() {
+        String firstSyllable =getMagicSyllable(syllablesPlace);
+        String secondSyllable =getMagicSyllable(syllablesPlace);
 
         return firstSyllable + secondSyllable;
 

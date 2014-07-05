@@ -14,8 +14,8 @@ public class Place {
 
     public Place() {
 
-        name = "testplace";
-        description = "blablablablabla";
+        name = Util.getMagicNamePlace();
+        description = "";
         items = new ArrayList<Item>();
 
     }
