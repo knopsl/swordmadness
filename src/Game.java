@@ -5,13 +5,17 @@ import java.util.Scanner;
  */
 public class Game {
 
-    public World alderan;
-    public Player player;
+    private World alderan;
+    private Player player;
 
     public Game() {
         alderan = new World("alderan", 10, 10);
+
         player = new Player();
-        player.name = Util.getMagicNameNpc();
+        player.name = prompt("Please Enter your Name: ");
+        alderan.setPlayerCoordinates(0,0, player);
+
+        alderan.printMap();
     }
 
     public static void main(String[] arg) throws Exception {
@@ -29,7 +33,7 @@ public class Game {
         */
 
 
-        String playerName = prompt("Please Enter your Name: ");
+
 
         System.out.println("You are currently at: " + game.alderan.whereAmI());
 
@@ -75,18 +79,18 @@ public class Game {
 
                 System.out.println("atm you are picking it up...");
                 game.player.items.add(i);
-                game.player.items.size();
+
                 Thread.sleep(1000);
                 System.out.println("Done!  this is your sword:");
                 System.out.println(i.toString());
             }
             if ("map".equals(in)) {
-                Map i = new Map("map1", "This is a boring old map, outdated as f***, why would anyone pick up one of these anyway...", "A1");
-                i.id = System.currentTimeMillis();
+                Map map = new Map("map1", "This is a boring old map, outdated as f***, why would anyone pick up one of these anyway...", "A1");
+                map.id = System.currentTimeMillis();
 
-                game.player.items.add(i);
+                game.player.items.add(map);
                 game.player.items.size();
-                System.out.println(i.toString());
+                System.out.println(map.toString());
             }
             /* TODO:
             if (in == 'n') {
@@ -119,7 +123,7 @@ public class Game {
     public static String prompt(String message) {
         Scanner inp = new Scanner(System.in);
         System.out.println(message);
-        return new Scanner(System.in).nextLine();
+        return inp.nextLine();
     }
 
 

@@ -40,8 +40,8 @@ public class Util {
     }
 
     public static String getMagicNamePlace() {
-        String firstSyllable =getMagicSyllable(syllablesPlace);
-        String secondSyllable =getMagicSyllable(syllablesPlace);
+        String firstSyllable = getMagicSyllable(syllablesPlace);
+        String secondSyllable = getMagicSyllable(syllablesPlace);
 
         return firstSyllable + secondSyllable;
 

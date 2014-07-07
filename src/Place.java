@@ -12,14 +12,36 @@ public class Place {
 
     public List<Item> items;
 
-    public Place() {
+    private Coordinates coordinates;
 
-        name = Util.getMagicNamePlace();
-        description = "";
-        items = new ArrayList<Item>();
+    private Player player;
 
+    public Place(int coordinateX, int coordinateY) {
+        this.name = Util.getMagicNamePlace();
+        this.description = "";
+        this.items = new ArrayList<Item>();
+        this.coordinates = new Coordinates(coordinateX, coordinateY);
     }
 
+    public String getName(){
+        return this.name;
+    }
+
+    public String getCoordinates(){
+        return this.coordinates.toString();
+    }
+
+    public void setPlayer(Player player){
+        this.player = player;
+    }
+
+    public String getContent(){
+        if(this.player != null){
+            return player.name;
+        } else{
+            return this.name;
+        }
+    }
 
     public String toString() {
         return this.name + "\n Description: " + this.description + "Coordinates: ";
